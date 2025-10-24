@@ -25,9 +25,15 @@
     /* Spacing */
     --spacing-field-vertical: 12px; /* inside inputs */
     --spacing-field-horizontal: 16px; /* inside inputs */
-    --section-padding-top: 32px;
-    --section-padding-left-right: 40px; /* used for card/form internal padding */
-    --container-padding-x: 16px; /* unified horizontal padding for header/container across all devices */
+    --section-padding-top: 32px; /* legacy vertical token */
+    --section-padding-left-right: 40px; /* legacy horizontal token */
+    /* New symmetric tokens for sections (prefer these going forward) */
+    --section-padding-y: 32px;
+    --section-padding-x: 40px;
+    /* Consistent horizontal padding for generic containers (header, etc.) */
+    --container-padding-x: 16px;
+    /* Header vertical padding */
+    --header-padding-y: 12px;
     --gap-between-fields: 24px;
     --button-gap: 16px;
 
@@ -53,6 +59,7 @@ img { max-width: 100%; height: auto; display: block; }
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    /* Use a single token so header/container padding doesn't shift across breakpoints */
     padding-left: var(--container-padding-x);
     padding-right: var(--container-padding-x);
 }
@@ -72,8 +79,8 @@ img { max-width: 100%; height: auto; display: block; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: var(--header-padding-y);
+    padding-bottom: var(--header-padding-y);
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-logo{ height:44px; width:auto; display:block; }
@@ -116,7 +123,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .form-section {
     background: var(--color-bg-form);
-    padding: var(--section-padding-top) var(--section-padding-left-right);
+    /* use symmetric tokens to avoid breakpoint shifts */
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-radius: var(--border-radius-s);
     /* 12px margin on all sides except bottom = 0 */
     margin: 12px;
@@ -278,21 +286,4 @@ textarea{ min-height: calc(var(--control-height) * 2); height: auto; }
 input:focus, select:focus, textarea:focus, .btn:focus{
     box-shadow: 0 0 0 3px rgba(41,91,255,0.16);
     border-color: rgba(41,91,255,0.6);
-}
-
-/* Responsive */
-@media (max-width: 767px){
-    .form-section{ padding: 24px 16px; }
-    .grid-2{ grid-template-columns: 1fr; }
-    .form-actions{ justify-content: stretch; }
-    .form-actions .btn{ flex: 1 1 0; }
-    .brand-logo{ height:40px; }
-    /* swap to menu.svg on mobile */
-    .user-menu-icon{
-        width:24px; height:24px;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3 12H21M3 6H21M3 18H21' stroke='%23466A81' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    }
-    /* hide partner logo and user name on mobile */
-    .partner-logo{ display:none; }
-    .user-name{ display:none; }
 }
