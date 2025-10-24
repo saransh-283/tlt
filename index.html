@@ -55,31 +55,84 @@
                     <!-- Primary Role -->
                     <h2 class="form-group-title">Select Primary Role:</h2>
                     <div class="grid-2">
+                        <!-- Custom dropdown (CSS-only) for Role -->
                         <div class="form-field no-label">
-                            <select id="role" name="role" aria-label="Role">
-                                <option value="" selected disabled>Select</option>
-                                <optgroup label="Specialist">
-                                    <option>Owner</option>
-                                    <option>Partner</option>
-                                    <option>Associate</option>
-                                </optgroup>
-                                <optgroup label="Others">
-                                    <option>Hygienist</option>
-                                    <option>Practice Success Director</option>
-                                    <option>Strategic Growth Partner</option>
-                                    <option>Treatment Consultant</option>
-                                    <option>Custom Role</option>
-                                </optgroup>
-                            </select>
+                            <details class="dropdown" data-name="role">
+                                <summary class="dropdown-summary" aria-label="Role" aria-haspopup="listbox">
+                                    <span class="dropdown-label"></span>
+                                    <span class="dropdown-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="dropdown-list" role="listbox" aria-label="Role">
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">Specialist</div>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Owner">
+                                            <span>Owner</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Partner">
+                                            <span>Partner</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Associate">
+                                            <span>Associate</span>
+                                        </label>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">Others</div>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Hygienist">
+                                            <span>Hygienist</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Practice Success Director">
+                                            <span>Practice Success Director</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Strategic Growth Partner">
+                                            <span>Strategic Growth Partner</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Treatment Consultant">
+                                            <span>Treatment Consultant</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="role" value="Custom Role">
+                                            <span>Custom Role</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
+                        <!-- Custom dropdown (CSS-only) for Specialty -->
                         <div class="form-field no-label">
-                            <select id="specialty" name="specialty" aria-label="Specialty Type">
-                                <option value="" selected disabled>Select</option>
-                                <option>Periodontist</option>
-                                <option>Endodontist</option>
-                                <option>Oral Surgeon</option>
-                                <option>Prosthodontist</option>
-                            </select>
+                            <details class="dropdown" data-name="specialty">
+                                <summary class="dropdown-summary" aria-label="Specialty Type" aria-haspopup="listbox">
+                                    <span class="dropdown-label"></span>
+                                    <span class="dropdown-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="dropdown-list" role="listbox" aria-label="Specialty Type">
+                                    <div class="dropdown-group">
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="specialty" value="Periodontist">
+                                            <span>Periodontist</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="specialty" value="Endodontist">
+                                            <span>Endodontist</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="specialty" value="Oral Surgeon">
+                                            <span>Oral Surgeon</span>
+                                        </label>
+                                        <label class="dropdown-option">
+                                            <input type="radio" name="specialty" value="Prosthodontist">
+                                            <span>Prosthodontist</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
                     </div>
 
@@ -93,21 +146,75 @@
                     <!-- Location -->
                     <h2 class="form-group-title">Select Location</h2>
                     <div class="grid-2">
+                        <!-- Custom dropdown (CSS-only) for Location 1 -->
                         <div class="form-field no-label">
-                            <select id="location1" name="location1" aria-label="Location">
-                                <option value="" selected disabled>Select</option>
-                                <option>Location A</option>
-                                <option>Location B</option>
-                                <option>Location C</option>
-                            </select>
+                            <details class="dropdown" data-name="location1">
+                                <summary class="dropdown-summary" aria-label="Location" aria-haspopup="listbox">
+                                    <span class="dropdown-label"></span>
+                                    <span class="dropdown-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="dropdown-list" role="listbox" aria-label="Location">
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">Northeast</div>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="New York, NY"><span>New York, NY</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Boston, MA"><span>Boston, MA</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Philadelphia, PA"><span>Philadelphia, PA</span></label>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">South</div>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Miami, FL"><span>Miami, FL</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Atlanta, GA"><span>Atlanta, GA</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Houston, TX"><span>Houston, TX</span></label>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">Midwest & Mountain</div>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Chicago, IL"><span>Chicago, IL</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Denver, CO"><span>Denver, CO</span></label>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">West Coast</div>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Los Angeles, CA"><span>Los Angeles, CA</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location1" value="Seattle, WA"><span>Seattle, WA</span></label>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
+                        <!-- Custom dropdown (CSS-only) for Location 2 -->
                         <div class="form-field no-label">
-                            <select id="location2" name="location2" aria-label="Location 2">
-                                <option value="" selected disabled>Select</option>
-                                <option>Location X</option>
-                                <option>Location Y</option>
-                                <option>Location Z</option>
-                            </select>
+                            <details class="dropdown" data-name="location2">
+                                <summary class="dropdown-summary" aria-label="Location 2" aria-haspopup="listbox">
+                                    <span class="dropdown-label"></span>
+                                    <span class="dropdown-caret" aria-hidden="true"></span>
+                                </summary>
+                                <div class="dropdown-list" role="listbox" aria-label="Location 2">
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">West Coast</div>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="San Francisco, CA"><span>San Francisco, CA</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="San Diego, CA"><span>San Diego, CA</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="Portland, OR"><span>Portland, OR</span></label>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">Texas</div>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="Dallas, TX"><span>Dallas, TX</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="Austin, TX"><span>Austin, TX</span></label>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">Southwest & Southeast</div>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="Phoenix, AZ"><span>Phoenix, AZ</span></label>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="Atlanta, GA"><span>Atlanta, GA</span></label>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="dropdown-group">
+                                        <div class="dropdown-group-label">Northeast</div>
+                                        <label class="dropdown-option"><input type="radio" name="location2" value="Philadelphia, PA"><span>Philadelphia, PA</span></label>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
                     </div>
 

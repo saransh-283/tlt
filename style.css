@@ -158,14 +158,13 @@ img { max-width: 100%; height: auto; display: block; }
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-select,
 textarea{
     height: var(--control-height);
     padding: var(--spacing-field-vertical) var(--spacing-field-horizontal);
     font-size: var(--fs-input);
     font-weight: var(--fw-regular);
     color: var(--color-input);
-    background: transparent;
+    background: transparent; /* blends with dark card */
     border: 1px solid rgba(255,255,255,0.16);
     border-radius: var(--border-radius-s);
     outline: none;
@@ -174,17 +173,65 @@ textarea{
 textarea{ min-height: calc(var(--control-height) * 2); height: auto; }
 ::placeholder{ color: var(--color-input); opacity: 1; }
 
-/* Custom select arrow */
-select{
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23CBCBCB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 18px;
-    padding-right: 44px; /* space for arrow */
-}
+/* --- CSS-only custom dropdown component ------------------------------- */
+.dropdown{ position: relative; --selected: "Select"; }
+.dropdown-summary{ list-style: none; cursor: pointer; user-select: none; height: var(--control-height); display:flex; align-items:center; gap:8px; padding: 0 40px 0 var(--spacing-field-horizontal); border: 1px solid rgba(255,255,255,0.16); border-radius: var(--border-radius-s); color: var(--color-input); }
+.dropdown-summary::-webkit-details-marker{ display:none; }
+.dropdown-label::after{ content: var(--selected, "Select"); }
+.dropdown-caret{ position:absolute; right:12px; width:18px; height:18px; background-repeat:no-repeat; background-position:center; background-size:100% 100%; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23CBCBCB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); }
+.dropdown[open] .dropdown-summary{ box-shadow: 0 0 0 3px rgba(41,91,255,0.16); border-color: rgba(41,91,255,0.6); }
+.dropdown[open] .dropdown-caret{ transform: rotate(180deg); }
+
+.dropdown-list{ position:absolute; left:0; right:0; margin-top:8px; background: var(--color-bg-form); border:1px solid rgba(255,255,255,0.16); border-radius: var(--border-radius-s); padding:8px; box-shadow: 0 16px 40px rgba(0,0,0,0.45); max-height: 300px; overflow:auto; z-index: 20; }
+.dropdown-group{ padding: 6px 0; }
+.dropdown-group-label{ font-size: var(--fs-label); font-weight: var(--fw-label); color: var(--color-label); padding: 6px 10px 8px; }
+.dropdown-divider{ height:1px; background: rgba(255,255,255,0.12); margin: 6px 8px; }
+.dropdown-option{ display:block; padding: 10px 10px; color:#E2E8F0; border-radius: 6px; cursor: pointer; }
+.dropdown-option:hover{ background: rgba(255,255,255,0.06); }
+.dropdown-option input{ position:absolute; opacity:0; pointer-events:none; }
+.dropdown-option input:checked + span{ color:#FFFFFF; }
+
+/* Selected text mapping for Role */
+.dropdown[data-name="role"]{ --selected: "Select"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Owner"]:checked){ --selected: "Owner"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Partner"]:checked){ --selected: "Partner"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Associate"]:checked){ --selected: "Associate"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Hygienist"]:checked){ --selected: "Hygienist"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Practice Success Director"]:checked){ --selected: "Practice Success Director"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Strategic Growth Partner"]:checked){ --selected: "Strategic Growth Partner"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Treatment Consultant"]:checked){ --selected: "Treatment Consultant"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Custom Role"]:checked){ --selected: "Custom Role"; }
+
+/* Selected text mapping for Specialty */
+.dropdown[data-name="specialty"]{ --selected: "Select"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Periodontist"]:checked){ --selected: "Periodontist"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Endodontist"]:checked){ --selected: "Endodontist"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Oral Surgeon"]:checked){ --selected: "Oral Surgeon"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Prosthodontist"]:checked){ --selected: "Prosthodontist"; }
+
+/* Selected text mapping for Location 1 */
+.dropdown[data-name="location1"]{ --selected: "Select"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="New York, NY"]:checked){ --selected: "New York, NY"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Boston, MA"]:checked){ --selected: "Boston, MA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Philadelphia, PA"]:checked){ --selected: "Philadelphia, PA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Miami, FL"]:checked){ --selected: "Miami, FL"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Atlanta, GA"]:checked){ --selected: "Atlanta, GA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Houston, TX"]:checked){ --selected: "Houston, TX"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Chicago, IL"]:checked){ --selected: "Chicago, IL"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Denver, CO"]:checked){ --selected: "Denver, CO"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Los Angeles, CA"]:checked){ --selected: "Los Angeles, CA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Seattle, WA"]:checked){ --selected: "Seattle, WA"; }
+
+/* Selected text mapping for Location 2 */
+.dropdown[data-name="location2"]{ --selected: "Select"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="San Francisco, CA"]:checked){ --selected: "San Francisco, CA"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="San Diego, CA"]:checked){ --selected: "San Diego, CA"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Portland, OR"]:checked){ --selected: "Portland, OR"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Dallas, TX"]:checked){ --selected: "Dallas, TX"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Austin, TX"]:checked){ --selected: "Austin, TX"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Phoenix, AZ"]:checked){ --selected: "Phoenix, AZ"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Atlanta, GA"]:checked){ --selected: "Atlanta, GA"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Philadelphia, PA"]:checked){ --selected: "Philadelphia, PA"; }
 
 /* Checkbox */
 .checkbox {
