@@ -1,11 +1,11 @@
-/* Desktop-only refinements (>=768px) */
-/* Most defaults are defined in universal.css. This file is intentionally small. */
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
 
-/* Reinforce two-column grid on desktop */
-.grid-2 { grid-template-columns: 1fr 1fr; }
+.brand-logo {
+  height: 44px;
+}
 
-/* Consistent header sizing */
-.brand-logo { height: 44px; }
-
-/* Buttons shouldn't stretch on desktop */
-.form-actions .btn { flex: 0 0 auto; }
+.form-actions .btn {
+  flex: 0 0 auto;
+}
