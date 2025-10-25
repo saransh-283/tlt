@@ -1,0 +1,10 @@
+/* Mapping for Location 2 */
+.dropdown[data-name="location2"] { --selected: "Select"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="San Francisco, CA"]:checked) { --selected: "San Francisco, CA"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="San Diego, CA"]:checked) { --selected: "San Diego, CA"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Portland, OR"]:checked) { --selected: "Portland, OR"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Dallas, TX"]:checked) { --selected: "Dallas, TX"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Austin, TX"]:checked) { --selected: "Austin, TX"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Phoenix, AZ"]:checked) { --selected: "Phoenix, AZ"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Atlanta, GA"]:checked) { --selected: "Atlanta, GA"; }
+.dropdown[data-name="location2"]:has(input[name="location2"][value="Philadelphia, PA"]:checked) { --selected: "Philadelphia, PA"; }

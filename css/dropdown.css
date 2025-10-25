@@ -1,0 +1,36 @@
+/* --- Custom dropdown --- */
+.dropdown { position: relative; --selected: "Select"; }
+
+.dropdown-summary {
+  list-style: none; cursor: pointer; user-select: none; height: var(--h-10);
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 40px 0 var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+}
+.dropdown:has(input:checked) .dropdown-summary { color: var(--color-white); }
+.dropdown-summary::-webkit-details-marker { display: none; }
+.dropdown-label::after { content: var(--selected, "Select"); }
+
+.dropdown-caret {
+  position: absolute; right: 12px; width: 18px; height: 18px;
+  background-repeat: no-repeat; background-position: center; background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23CBCBCB' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+.dropdown[open] .dropdown-summary { box-shadow: var(--ring-primary); border-color: var(--ring-primary-border); }
+.dropdown[open] .dropdown-caret { transform: rotate(180deg); }
+
+.dropdown-list {
+  position: absolute; left: 0; right: 0; margin-top: 8px;
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  padding: 8px; box-shadow: 0 16px 40px rgba(0,0,0,0.45); max-height: 300px; overflow: auto; z-index: 20;
+}
+.dropdown-group { padding: 6px 0; }
+.dropdown-group-label { font-size: var(--text-sm); font-weight: var(--font-medium); color: var(--color-secondary); padding: 6px 10px 8px; }
+.dropdown-divider { height: 1px; background: var(--color-divider); margin: 6px 8px; }
+
+.dropdown-option { display: block; padding: 10px 10px; color: #e2e8f0; border-radius: 6px; cursor: pointer; }
+.dropdown-option:hover { background: rgba(255,255,255,0.06); }
+.dropdown-option input { position: absolute; opacity: 0; pointer-events: none; }
+.dropdown-option input:checked + span { color: #ffffff; }

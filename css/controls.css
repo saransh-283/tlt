@@ -1,0 +1,28 @@
+/* Controls */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  height: var(--h-10);
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  color: var(--color-white);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  box-sizing: border-box;
+}
+
+textarea { min-height: calc(var(--h-10) * 2); height: auto; }
+::placeholder { color: var(--color-muted); opacity: 1; }
+
+/* Focus ring */
+input:focus,
+select:focus,
+textarea:focus,
+.btn:focus {
+  box-shadow: var(--ring-primary);
+  border-color: var(--ring-primary-border);
+}

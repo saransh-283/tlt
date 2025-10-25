@@ -1,0 +1,12 @@
+/* Mapping for Location 1 */
+.dropdown[data-name="location1"] { --selected: "Select"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="New York, NY"]:checked) { --selected: "New York, NY"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Boston, MA"]:checked) { --selected: "Boston, MA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Philadelphia, PA"]:checked) { --selected: "Philadelphia, PA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Miami, FL"]:checked) { --selected: "Miami, FL"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Atlanta, GA"]:checked) { --selected: "Atlanta, GA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Houston, TX"]:checked) { --selected: "Houston, TX"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Chicago, IL"]:checked) { --selected: "Chicago, IL"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Denver, CO"]:checked) { --selected: "Denver, CO"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Los Angeles, CA"]:checked) { --selected: "Los Angeles, CA"; }
+.dropdown[data-name="location1"]:has(input[name="location1"][value="Seattle, WA"]:checked) { --selected: "Seattle, WA"; }

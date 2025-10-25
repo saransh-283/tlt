@@ -1,0 +1,6 @@
+/* Mapping for Specialty */
+.dropdown[data-name="specialty"] { --selected: "Select"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Periodontist"]:checked) { --selected: "Periodontist"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Endodontist"]:checked) { --selected: "Endodontist"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Oral Surgeon"]:checked) { --selected: "Oral Surgeon"; }
+.dropdown[data-name="specialty"]:has(input[name="specialty"][value="Prosthodontist"]:checked) { --selected: "Prosthodontist"; }

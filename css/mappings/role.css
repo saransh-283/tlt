@@ -1,0 +1,10 @@
+/* Mapping for Role */
+.dropdown[data-name="role"] { --selected: "Select"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Owner"]:checked) { --selected: "Owner"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Partner"]:checked) { --selected: "Partner"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Associate"]:checked) { --selected: "Associate"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Hygienist"]:checked) { --selected: "Hygienist"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Practice Success Director"]:checked) { --selected: "Practice Success Director"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Strategic Growth Partner"]:checked) { --selected: "Strategic Growth Partner"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Treatment Consultant"]:checked) { --selected: "Treatment Consultant"; }
+.dropdown[data-name="role"]:has(input[name="role"][value="Custom Role"]:checked) { --selected: "Custom Role"; }
